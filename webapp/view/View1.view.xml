@@ -1,0 +1,67 @@
+<mvc:View controllerName="home.kpmg.Exercise5.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<HBox xmlns="sap.m">
+							<items>
+								<Button xmlns="sap.m" id="cbtn" press="oDataCall" text="Create"></Button>
+								<Button xmlns="sap.m" id="rbtn" press="oDataCall" text="Read"></Button>
+								<Button xmlns="sap.m" id="ubtn" press="oDataCall" text="Update"></Button>
+								<Button xmlns="sap.m" id="dbtn" press="oDataCall" text="Delete"></Button>
+							</items>
+						</HBox>
+						<HBox xmlns="sap.m">
+							<items>
+								<Input xmlns="sap.m" id="uniqueid" placeholder="ID" value="1"></Input>
+								<Input xmlns="sap.m" id="nameid" placeholder="Name" value="test"></Input>
+								<Input xmlns="sap.m" id="emailid" placeholder="Email" value="test@gmail.com"></Input>
+								<Input xmlns="sap.m" id="mobid" placeholder="Mobile" value="8888888888"></Input>
+							</items>
+						</HBox>
+						<!--<List headerText="Users" items="{ path: 'myModel>/userDataSet' }">
+							<StandardListItem title="{myModel>Id}"/>
+							<StandardListItem title="{myModel>Name}"/>
+							<StandardListItem title="{myModel>Email}"/>
+							<StandardListItem title="{myModel>Mobile}"/>
+						</List>-->
+						<Table id="productsList" class="sapUiResponsiveMargin" width="auto" items="{ path: 'myModel>/userDataSet' }">
+                            <headerToolbar>
+                                <Toolbar>
+                                    <Title text="Users"/>
+                                    <ToolbarSpacer/>
+                                    <!--<SearchField width="50%" search=".onFilterProducts"/>-->
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column hAlign="End" minScreenWidth="Small" demandPopin="true" width="4em">
+                                    <Text text="Id"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Name"/>
+                                </Column>
+                                <Column minScreenWidth="Small" demandPopin="true">
+                                    <Text text="Email"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="false">
+                                    <Text text="Phone"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem press=".onPress">
+                                    <cells >
+                                        <ObjectNumber number="{myModel>Id}" emphasized="false"/>
+                                        <ObjectIdentifier title="{myModel>Name}"/>
+                                        <Text text="{myModel>Email}"/>
+                                        <Text text="{myModel>Mobile}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
